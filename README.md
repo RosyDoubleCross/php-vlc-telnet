@@ -29,10 +29,12 @@ $nullLogger = new \Monolog\Logger('null', new \Monolog\Handler\NullHandler());
 $vlc = new \RXX\VLCTelnet\VLCTelnet($config, $nullLogger, $nullLogger);
 ```
 
-Caveat
-------
+Caveats
+-------
 
 This library was developed against "VLC media player 2.0.6 Twoflower", although I don't believe the VLC telnet console functionality changes very often.
+
+Be careful about letting a default VLCTelnet object destruct. It will close stdin and stderr when the destruct cascades to the default Monolog Loggers that are pointing to those. (This may make debugging frustrating.) Perhaps I should modify the defaults to work around this problem.
 
 License
 -------
