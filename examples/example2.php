@@ -9,17 +9,26 @@ if (file_exists(__DIR__ . '/../vendor/autoload.php')) {
 }
 
 use RXX\VLCTelnet\VLCTelnet;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
+use Monolog\Handler\NullHandler;
+
+$actionLog = new Logger('VLCTelnet.action', array(new NullHandler()));
+
+$stream = fopen('socket.log', 'w');
+$handler = new StreamHandler($stream);
+$formatter = new LineFormatter('%message%', null, true);
+$handler->setFormatter($formatter);
+$socketLog = new Logger('VLCTelnet.socket', array($handler));
 
 // connect to VLC telnet console at localhost:5023
-$vlc = new VLCTelnet();
+$vlc = new VLCTelnet(null, $actionLog, $socketLog);
 
 if (!$vlc->isPlaying()) {
     $msg = 'Media is not playing';
 } else {
     $msg = 'Media at position ' . $vlc->getTime() . '/' . $vlc->getLength();
 }
-
-unset($vlc);
 
 echo "{$msg}\n";
 
