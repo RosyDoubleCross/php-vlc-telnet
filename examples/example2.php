@@ -12,6 +12,7 @@ use RXX\VLCTelnet\VLCTelnet;
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;
 use Monolog\Handler\NullHandler;
+use Monolog\Formatter\LineFormatter;
 
 $actionLog = new Logger('VLCTelnet.action', array(new NullHandler()));
 
