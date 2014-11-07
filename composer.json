@@ -1,0 +1,28 @@
+{
+    "name": "rxx/vlc-telnet",
+    "type": "library",
+    "description": "For interacting with VLC telnet console",
+    "keywords": ["vlc", "telnet", "console", "video", "stream", "media", "automation"],
+    "homepage": "https://github.com/RosyDoubleCross/php-vlc-telnet",
+    "license": "GPL v3.0",
+    "authors": [
+        {
+            "name": "Joe Lafiosca",
+            "email": "joe@lafiosca.com",
+            "homepage": "http://lafiosca.com/",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0",
+        "rxx/colors": "~1.0",
+        "doctrine/dbal": "~2.4",
+        "monolog/monolog": "~1.11",
+        "zendframework/zend-config": "~2.3"
+    },
+    "autoload": {
+        "psr-4" : {
+            "RXX\\VLCTelnet\\" : "src"
+        }
+    }
+}
