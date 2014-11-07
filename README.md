@@ -29,6 +29,11 @@ $nullLogger = new \Monolog\Logger('null', new \Monolog\Handler\NullHandler());
 $vlc = new \RXX\VLCTelnet\VLCTelnet($config, $nullLogger, $nullLogger);
 ```
 
+Caveat
+------
+
+This library was developed against "VLC media player 2.0.6 Twoflower", although I don't believe the VLC telnet console functionality changes very often.
+
 License
 -------
 
