@@ -112,7 +112,18 @@ class VLCTelnet
 
         $this->unexpected($isPlaying, 'is_playing');
     }
+        
+    public function getPlaylist()
+    {
+        $this->logAction('Show items currently in playlist');
 
+        $playlist = $this->request('playlist');
+
+        return $playlist;
+    }
+
+    
+    
     public function seek($position)
     {
         $this->logAction("Seeking to {$position}");
